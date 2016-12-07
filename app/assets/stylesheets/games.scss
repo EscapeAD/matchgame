@@ -7,10 +7,19 @@
 }
 .gameBoard {
   margin: 0px auto;
-  width: 300px;
+  width: 50%;
 }
 .square {
-  height: 5em;
-  width: 5em;
+  height: 8em;
+  width: 8em;
   border: 1px solid black;
+  transition: 1s;
+}
+
+.backsplash {
+  background-color: steelblue;
+}
+.flash{
+  background-color: black;
+  transition: 0.3s;
 }
