@@ -6,6 +6,7 @@ $(function() {
   function start(){
     gameOn = true;
     var newnum = numbers;
+    reset();
     squares.each(function(){
       // $(this).css('background-color', 'red').slideUp( 3000 ).fadeIn( 400 );
       $(this).removeClass('flash');
@@ -17,7 +18,9 @@ $(function() {
   }
   squares.hover(function(){
     // var mouse = $(this).hasClass('backsplash');
+    if($(this).hasClass('backsplash') || $(this).hasClass('flash')){
       $(this).toggleClass('flash');
+    };
   });
 
   console.log('ready 1');
@@ -32,11 +35,12 @@ $(function() {
     if(gameOn){
       console.log('clicked');
     // $(this).css('background-color', 'white');
+    if($(this).hasClass('backsplash')){
     $(this).removeClass('backsplash');
     $(this).addClass('selected');
     selected();
     check();
-
+  }
   }
   });
 
@@ -59,14 +63,22 @@ function selected(){
       select.each(function(){
         $(this).removeClass('selected');
         $(this).addClass('win');
+        console.log('correct');
     })
       } else {
       select.each(function(){
         $(this).removeClass('selected');
         $(this).addClass('backsplash');
+        console.log('wrong');
     });
     }
   }
 }
-
+  function reset(){
+    $('squares').each(function(){
+      $(this).removeClass('backsplash');
+      $(this).removeClass('win');
+      // $(this).text("");
+  });
+  }
 });

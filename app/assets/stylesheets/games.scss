@@ -10,22 +10,23 @@
   width: 50%;
 }
 .square {
-  height: 8em;
-  width: 8em;
+  height: 100px;
+  width: 100px;
   border: 1px solid black;
   transition: 2s;
 }
 
 .backsplash {
   background-color: steelblue;
+  font-size: 0;
 }
 .flash{
   background-color: black;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 .selected{
   border: 2px red solid;
 }
 .win {
-  
+
 }
