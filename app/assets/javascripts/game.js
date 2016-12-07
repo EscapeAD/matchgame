@@ -34,15 +34,17 @@ $(function() {
     // $(this).css('background-color', 'white');
     $(this).removeClass('backsplash');
     $(this).addClass('selected');
-    check();
     selected();
+    check();
+
   }
   });
 
 
 function check(){
-  if($('.backsplash').length === 0){
+  if($('.win').length === 16){
     gameOn = false;
+    alert('winner');
   }
 }
 function ranNum(){
@@ -56,6 +58,7 @@ function selected(){
       console.log('YES!');
       select.each(function(){
         $(this).removeClass('selected');
+        $(this).addClass('win');
     })
       } else {
       select.each(function(){
