@@ -13,7 +13,7 @@
   height: 8em;
   width: 8em;
   border: 1px solid black;
-  transition: 1s;
+  transition: 2s;
 }
 
 .backsplash {
@@ -22,4 +22,7 @@
 .flash{
   background-color: black;
   transition: 0.3s;
+}
+.selected{
+  border: 2px red solid;
 }

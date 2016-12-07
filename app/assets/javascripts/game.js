@@ -33,7 +33,9 @@ $(function() {
       console.log('clicked');
     // $(this).css('background-color', 'white');
     $(this).removeClass('backsplash');
+    $(this).addClass('selected');
     check();
+    selected();
   }
   });
 
@@ -45,6 +47,23 @@ function check(){
 }
 function ranNum(){
 
+}
+
+function selected(){
+  var select = $('.selected');
+  if(select.length >= 2){
+    if(select.first().text() == select.last().text()){
+      console.log('YES!');
+      select.each(function(){
+        $(this).removeClass('selected');
+    })
+      } else {
+      select.each(function(){
+        $(this).removeClass('selected');
+        $(this).addClass('backsplash');
+    });
+    }
+  }
 }
 
 });
