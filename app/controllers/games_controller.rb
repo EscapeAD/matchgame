@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    @highscores = Highscore.order(score: :desc).limit(10)
+    @highscores = Highscore.order(score: :asc).limit(10)
   end
 
   def create

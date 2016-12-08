@@ -6,7 +6,6 @@ $(function() {
   let mins            = $('#mins');
   let hrs             = $('#hours');
   let goTime;
-  let name      = prompt('whats your name?');
 
 init();
 
@@ -64,6 +63,7 @@ function check(){
     clearInterval(goTime);
     alert('CONGRATS!');
     var score = hrs.text() + mins.text();
+    let name      = prompt('whats your name?');
     console.log(score);
     $.ajax({
       url: '/games',
