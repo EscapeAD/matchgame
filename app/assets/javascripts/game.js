@@ -44,7 +44,6 @@ init();
 
 function start(){
   gameOn = true;
-  reset();
   squares.each(function(){
     $(this).removeClass('flash');
     $(this).addClass('backsplash');
@@ -52,9 +51,9 @@ function start(){
 }
 
 function check(){
-  if($('.win').length === 16){
+  if($('.backsplash').length === 0 && $('.selected').length === 0){
     gameOn = false;
-    alert('winner');
+    let winner = prompt('HighScore ' + 12213123 + ", Name:");
   }
 }
 
