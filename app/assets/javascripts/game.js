@@ -120,13 +120,17 @@ function setNumbers(){
 
   }
 }
+function pad(n) {
+    return (n < 10) ? ("0" + n) : n;
+}
+
 function counter(){
   if(timer){
     if(mins.text() == 59){
-      hrs.text(parseInt(hrs.text())+1);
+      hrs.text(pad(parseInt(hrs.text())+1));
       mins.text(00);
     } else {
-      mins.text(parseInt(mins.text(), 10)+1);
+      mins.text(pad(parseInt(mins.text(), 10)+1));
     }
   }
 }
