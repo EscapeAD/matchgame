@@ -1,11 +1,11 @@
 $(function() {
-  let squares         = $('.square');
-  let gameOn          = false;
-  const numbers       = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-  let timer           = false;
-  let mins            = $('#mins');
-  let hrs             = $('#hours');
-  let goTime;
+  var squares         = $('.square');
+  var gameOn          = false;
+  var numbers       = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
+  var timer           = false;
+  var mins            = $('#mins');
+  var hrs             = $('#hours');
+  var goTime;
 
 init();
 
@@ -13,7 +13,7 @@ init();
     if($(this).hasClass('backsplash') || $(this).hasClass('flash')){
       $(this).toggleClass('flash');
     };
-  });
+  })
 
   console.log('ready 1');
 
@@ -31,15 +31,15 @@ init();
 
   $('.square').click(function(event){
     event.preventDefault();
-    if(gameOn){
-      console.log('clicked');
-    if($(this).hasClass('backsplash')){
-    $(this).removeClass('backsplash');
-    $(this).addClass('selected');
-    selected();
-    check();
-  }
-  }
+      if(gameOn){
+        console.log('clicked');
+      if($(this).hasClass('backsplash')){
+        $(this).removeClass('backsplash');
+        $(this).addClass('selected');
+        selected();
+        check();
+      }
+    }
   });
 
 // functions
@@ -63,7 +63,7 @@ function check(){
     clearInterval(goTime);
     alert('CONGRATS!');
     var score = hrs.text() + mins.text();
-    let name      = prompt('whats your name?');
+    var name      = prompt('whats your name?');
     console.log(score);
     $.ajax({
       url: '/games',
@@ -73,11 +73,7 @@ function check(){
     }).success(function(ha){
       console.log("ha");
     })
-  }
-}
-
-function ranNum(){
-
+  };
 }
 
 function selected(){
@@ -114,7 +110,7 @@ function reset(){
   }
 
 function generate(){
-for(let i = 0; i < 100; i++){
+for(var i = 0; i < 100; i++){
   numbers.splice((Math.floor(Math.random() * 16) + 1), 0, numbers[0]);
   numbers.shift();
   }
@@ -127,7 +123,7 @@ function init(){
 }
 
 function setNumbers(){
-  for(let i = 0; i < squares.length; i++){
+  for(var i = 0; i < squares.length; i++){
     $( "td:nth(" + i + ")").text(numbers[i]);
 
   }
