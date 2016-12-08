@@ -1,10 +1,10 @@
 $(function() {
-  let squares   = $('.square');
-  let gameOn    = false;
-  const numbers = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-  let timer     = false;
-  let mins      = $('#mins');
-  let hrs       = $('#hours');
+  let squares         = $('.square');
+  let gameOn          = false;
+  const numbers       = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
+  let timer           = false;
+  let mins            = $('#mins');
+  let hrs             = $('#hours');
   let goTime;
   let name      = prompt('whats your name?');
 
@@ -62,10 +62,17 @@ function check(){
   if($('.backsplash').length === 0 && $('.selected').length === 0){
     gameOn = false;
     clearInterval(goTime);
-    if (name == ""){
-    let winner = prompt('HighScore ' + 12213123 + ", Name:");
-  }} else {
-    
+    alert('CONGRATS!');
+    var score = hrs.text() + mins.text();
+    console.log(score);
+    $.ajax({
+      url: '/games',
+      method: 'POST' ,
+      data: {highscore: {name: name, score: parseInt(score)}},
+      dataType: JSON
+    }).success(function(ha){
+      console.log("ha");
+    })
   }
 }
 
@@ -140,4 +147,7 @@ function counter(){
   }
 }
 
+$('.win').click(function(){
+  check();
+})
 });
