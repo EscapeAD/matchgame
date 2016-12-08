@@ -1,10 +1,18 @@
 <div class='container'>
 <h2 class='pull-right'><span id='hours'>00</span>:<span id='mins'>00</span></h2>
-<h1> Game Name </h1>
-<h4> current player:</h4>
+<h1> Match Game </h1>
+<h4> current player: <span id='name'></span></h4>
 <p> Ready to match up the numbers - current stage: </p>
 <button class='start btn btn-success btn-lg'>start</button>
 <button class='reset btn btn-danger btn-lg'>reset</button>
+<div class='pull-right'>
+  <h4>HighScore</h4>
+  <% @highscores.each do |x| %>
+  <p>
+  <%= @highscores.find_index(x)+1 %>. <%= x.name %>  - <%= x.score %>
+</p>
+  <% end %>
+</div>
 <div class='gameBoard text-center'>
   <table>
     <tr id="row1">
@@ -33,4 +41,5 @@
     </tr>
   </table>
 </div>
+
 </div>

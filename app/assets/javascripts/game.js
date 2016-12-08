@@ -6,6 +6,7 @@ $(function() {
   let mins      = $('#mins');
   let hrs       = $('#hours');
   let goTime;
+  let name      = prompt('whats your name?');
 
 init();
 
@@ -61,7 +62,10 @@ function check(){
   if($('.backsplash').length === 0 && $('.selected').length === 0){
     gameOn = false;
     clearInterval(goTime);
+    if (name == ""){
     let winner = prompt('HighScore ' + 12213123 + ", Name:");
+  }} else {
+    
   }
 }
 
@@ -112,6 +116,7 @@ for(let i = 0; i < 100; i++){
 function init(){
   generate();
   setNumbers();
+  $('#name').text(name);
 }
 
 function setNumbers(){
